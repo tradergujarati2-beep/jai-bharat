@@ -4,629 +4,607 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>Gujarati Trader - India's #1 Stock Market Community</title>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-<!-- ============================================================
-     IDENTITY & TRACKING DATA LAYER
-     ============================================================ -->
+<!-- IDENTITY & TRACKING -->
 <script>
-(function() {
-    'use strict';
-
-    var EXTERNAL_ID_KEY = 'gt_external_id';
-    var externalId = localStorage.getItem(EXTERNAL_ID_KEY);
-
-    if (!externalId) {
-        var uuid;
-        if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
-            uuid = crypto.randomUUID();
-        } else {
-            uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-                var arr = new Uint8Array(1);
-                crypto.getRandomValues(arr);
-                var r = arr[0] & 15;
-                var v = c === 'x' ? r : (r & 0x3 | 0x8);
-                return v.toString(16);
-            });
-        }
-        externalId = 'gt-ext-' + uuid;
-        localStorage.setItem(EXTERNAL_ID_KEY, externalId);
-    }
-
-    var urlParams = new URLSearchParams(window.location.search);
-    var fbclid = urlParams.get('fbclid') || '';
-
-    if (fbclid) {
-        localStorage.setItem('gt_fbclid', fbclid);
-    } else {
-        fbclid = localStorage.getItem('gt_fbclid') || '';
-    }
-
-    window.__gt_tracking = {
-        externalId: externalId,
-        fbclid: fbclid
-    };
-
-})();
+(function(){'use strict';var k='gt_external_id',e=localStorage.getItem(k);if(!e){var u;if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function'){u=crypto.randomUUID()}else{u='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var a=new Uint8Array(1);crypto.getRandomValues(a);var r=a[0]&15;return(c==='x'?r:(r&0x3|0x8)).toString(16)})}e='gt-ext-'+u;localStorage.setItem(k,e)}var p=new URLSearchParams(window.location.search),f=p.get('fbclid')||'';if(f)localStorage.setItem('gt_fbclid',f);else f=localStorage.getItem('gt_fbclid')||'';window.__gt_tracking={externalId:e,fbclid:f}})();
 </script>
 
-<!-- ============================================================
-     META PIXEL — Advanced Matching (NEW PIXEL ID)
-     ============================================================ -->
+<!-- META PIXEL -->
 <script>
-!function(f,b,e,v,n,t,s){
-if(f.fbq)return;
-n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];
-t=b.createElement(e);t.async=!0;
-t.src=v;
-s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)
-}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-fbq('init', '1723339156163326', { external_id: window.__gt_tracking.externalId });
-fbq('track', 'PageView');
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init','1723339156163326',{external_id:window.__gt_tracking.externalId});
+fbq('track','PageView');
 </script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1723339156163326&ev=PageView&noscript=1"/></noscript>
 
-<noscript>
-<img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1723339156163326&ev=PageView&noscript=1"/>
-</noscript>
-
-<!-- ============================================================
-     PREMIUM STYLES (BRAND NAME VISIBILITY FIXED)
-     ============================================================ -->
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@700&display=swap');
+
+:root{
+  --bg:#050510;
+  --card:rgba(255,255,255,0.03);
+  --border:rgba(255,255,255,0.06);
+  --blue:#0088cc;
+  --cyan:#00d4ff;
+  --green:#00ff88;
+  --gold:#FFD700;
+  --orange:#FF9933;
+  --red:#ef4444;
+}
 
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 
+html{scroll-behavior:smooth}
+
 body{
-  font-family:'Poppins',sans-serif;
-  background:#020617;
+  font-family:'Inter',sans-serif;
+  background:var(--bg);
   color:#fff;
-  text-align:center;
   min-height:100vh;
   overflow-x:hidden;
 }
 
-/* ── ANIMATED BACKGROUND ── */
-.bg-grid {
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: 0;
-  pointer-events: none;
+/* ══════════ ANIMATED MESH BACKGROUND ══════════ */
+.mesh-bg{
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -20%,rgba(0,136,204,0.15),transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%,rgba(0,212,255,0.06),transparent),
+    radial-gradient(ellipse 50% 50% at 20% 80%,rgba(0,255,136,0.04),transparent);
 }
 
-.bg-glow {
-  position: fixed;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(0,198,255,0.12) 0%, transparent 70%);
-  top: -200px; left: 50%; transform: translateX(-50%);
-  z-index: 0;
-  pointer-events: none;
-  animation: breathe 6s ease-in-out infinite;
+.orb{
+  position:fixed;border-radius:50%;filter:blur(80px);z-index:0;pointer-events:none;
+  animation:float 20s ease-in-out infinite;
+}
+.orb-1{width:400px;height:400px;background:rgba(0,136,204,0.08);top:-100px;right:-100px;animation-delay:0s}
+.orb-2{width:300px;height:300px;background:rgba(0,255,136,0.06);bottom:-50px;left:-80px;animation-delay:-7s}
+.orb-3{width:250px;height:250px;background:rgba(255,153,51,0.05);top:50%;left:50%;animation-delay:-14s}
+
+@keyframes float{
+  0%,100%{transform:translate(0,0) scale(1)}
+  25%{transform:translate(30px,-40px) scale(1.1)}
+  50%{transform:translate(-20px,30px) scale(0.95)}
+  75%{transform:translate(40px,20px) scale(1.05)}
 }
 
-@keyframes breathe {
-  0%, 100% { opacity: 0.4; transform: translateX(-50%) scale(1); }
-  50% { opacity: 0.8; transform: translateX(-50%) scale(1.1); }
+/* ══════════ NOISE OVERLAY ══════════ */
+.noise{
+  position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none;
+  opacity:0.03;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
 }
 
-.container{
-  position:relative;
-  z-index:1;
-  width:100%;
-  max-width:480px;
-  margin:0 auto;
-  padding:0 20px;
+.container{position:relative;z-index:1;width:100%;max-width:520px;margin:0 auto;padding:0 20px}
+
+/* ══════════ TICKER STRIP ══════════ */
+.ticker-wrap{
+  overflow:hidden;background:rgba(0,136,204,0.06);
+  border-bottom:1px solid var(--border);padding:10px 0;position:relative;z-index:1;
+}
+.ticker{
+  display:flex;gap:40px;animation:scroll-ticker 30s linear infinite;white-space:nowrap;
+}
+.ticker span{
+  font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;
+  color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:8px;
+}
+.ticker span i{font-size:14px}
+.ticker span .up{color:var(--green)}
+.ticker span .down{color:var(--red)}
+@keyframes scroll-ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══════════ ENTRANCE ══════════ */
+.reveal{opacity:0;transform:translateY(30px);animation:revealUp 0.8s cubic-bezier(0.16,1,0.3,1) forwards}
+.d1{animation-delay:0.1s}.d2{animation-delay:0.25s}.d3{animation-delay:0.4s}.d4{animation-delay:0.55s}.d5{animation-delay:0.7s}.d6{animation-delay:0.85s}
+@keyframes revealUp{to{opacity:1;transform:translateY(0)}}
+
+/* ══════════ HERO ══════════ */
+.hero{padding:40px 0 20px;text-align:center}
+
+.hero-top{display:flex;flex-direction:column;align-items:center;margin-bottom:24px}
+
+.avatar-ring{
+  position:relative;width:120px;height:120px;margin-bottom:20px;
+}
+.avatar-ring::before{
+  content:'';position:absolute;inset:-4px;border-radius:50%;
+  background:conic-gradient(from 0deg,#FF9933,#fff,#138808,#FF9933);
+  animation:spin 6s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+.avatar-ring img{
+  position:relative;width:100%;height:100%;border-radius:50%;object-fit:cover;
+  border:3px solid var(--bg);display:block;
+}
+.avatar-ring .live-dot{
+  position:absolute;bottom:2px;right:2px;width:28px;height:28px;
+  background:var(--red);border-radius:50%;border:3px solid var(--bg);
+  display:flex;align-items:center;justify-content:center;
+  animation:pulse-ring 2s infinite;
+}
+.avatar-ring .live-dot i{font-size:8px;color:#fff}
+@keyframes pulse-ring{
+  0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.5)}
+  50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}
 }
 
-/* ── ENTRANCE ANIMATIONS ── */
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  animation: revealUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+.brand-row{display:flex;align-items:center;justify-content:center;gap:10px;margin-bottom:6px}
+.brand-row i{font-size:20px;color:var(--gold);filter:drop-shadow(0 0 6px rgba(255,215,0,0.5))}
+.brand-name{
+  font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;
+  background:linear-gradient(135deg,#FFD700,#FF9933,#fff,#00d4ff);
+  background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;animation:shimmer 3s linear infinite;
 }
-
-.d1 { animation-delay: 0.1s; }
-.d2 { animation-delay: 0.2s; }
-.d3 { animation-delay: 0.3s; }
-.d4 { animation-delay: 0.5s; }
-.d5 { animation-delay: 0.7s; }
-
-@keyframes revealUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* ── HERO ── */
-.hero{
-  padding:50px 0 30px;
-}
-
-.hero-img-wrap {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 24px;
-}
-
-.hero-img-wrap::before {
-  content: '';
-  position: absolute;
-  top: -6px; left: -6px; right: -6px; bottom: -6px;
-  border-radius: 50%;
-  background: conic-gradient(from 0deg, #FF9933, #ffffff, #138808, #FF9933);
-  animation: spin 4s linear infinite;
-  z-index: -1;
-}
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
-
-.hero img{
-  width:140px;
-  height:140px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #020617;
-  box-shadow: 0 0 30px rgba(0,198,255,0.4);
-  display: block;
-}
-
-.live-badge {
-  position: absolute;
-  bottom: 5px; right: 5px;
-  background: #ef4444;
-  color: white;
-  font-size: 10px;
-  font-weight: 700;
-  padding: 3px 8px;
-  border-radius: 12px;
-  border: 2px solid #020617;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  box-shadow: 0 0 10px rgba(239,68,68,0.6);
-}
-
-.live-badge i { font-size: 8px; animation: pulse-dot 1.5s infinite; }
-
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.3; }
-}
-
-/* ── PREMIUM BRAND NAME (BUG FIXED) ── */
-.trader-name{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.trader-name i {
-  font-size: 24px;
-  color: #FFD700; /* Solid color for icons so they never disappear */
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
-}
-
-.brand-text {
-  font-size: 32px;
-  font-weight: 900;
-  background: linear-gradient(135deg, #FFD700, #FF9933, #ffffff, #00c6ff);
-  background-size: 200% auto;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  animation: textShine 4s linear infinite;
-  display: inline-block; /* CRITICAL FIX: Prevents disappearing in flex containers */
-}
-
-.brand-gujarati {
-  font-family: 'Poppins', sans-serif;
-  letter-spacing: 1px;
-}
-
-.brand-eng {
-  font-family: 'Montserrat', sans-serif;
-  letter-spacing: 3px;
-  font-weight: 900;
-}
-
-@keyframes textShine {
-  0% { background-position: 0% 50%; }
-  100% { background-position: 200% 50%; }
-}
+@keyframes shimmer{0%{background-position:0% 50%}100%{background-position:200% 50%}}
 
 .hero h1{
-  font-size:20px;
-  font-weight:800;
-  margin-bottom:8px;
-  color:#ffffff;
-  line-height:1.4;
+  font-size:22px;font-weight:900;line-height:1.3;margin-bottom:6px;
+  background:linear-gradient(180deg,#fff 0%,rgba(255,255,255,0.7) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero .subtitle{font-size:13px;color:rgba(255,255,255,0.4);font-weight:400;margin-bottom:24px}
+
+/* ══════════ STATS ROW ══════════ */
+.stats-row{
+  display:flex;justify-content:center;gap:8px;margin-bottom:28px;
+}
+.stat-pill{
+  display:flex;align-items:center;gap:6px;
+  padding:8px 14px;border-radius:100px;
+  background:var(--card);border:1px solid var(--border);
+  backdrop-filter:blur(10px);
+}
+.stat-pill i{font-size:12px}
+.stat-pill .s-val{font-size:14px;font-weight:800}
+.stat-pill .s-lbl{font-size:9px;color:rgba(255,255,255,0.35);text-transform:uppercase;letter-spacing:0.5px}
+.stat-pill.green i{color:var(--green)}
+.stat-pill.blue i{color:var(--cyan)}
+.stat-pill.gold i{color:var(--gold)}
+
+/* ══════════ CTA BUTTON ══════════ */
+.cta-wrap{margin:0 auto 28px;max-width:400px}
+
+.cta-btn{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:12px;
+  width:100%;padding:20px 28px;border-radius:16px;border:none;cursor:pointer;
+  font-family:'Inter',sans-serif;font-size:18px;font-weight:800;color:#fff;
+  background:linear-gradient(135deg,#0088cc 0%,#00b4d8 50%,#00d4ff 100%);
+  box-shadow:0 0 0 1px rgba(0,212,255,0.3),0 8px 30px rgba(0,136,204,0.35),0 0 60px rgba(0,136,204,0.15);
+  text-decoration:none;overflow:hidden;
+  transition:transform .2s,box-shadow .2s;
+}
+.cta-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 0 0 1px rgba(0,212,255,0.5),0 12px 40px rgba(0,136,204,0.5),0 0 80px rgba(0,136,204,0.2);
+}
+.cta-btn:active{transform:scale(0.98)}
+
+.cta-btn::before{
+  content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,0.25),transparent);
+  animation:btn-shine 3s ease-in-out infinite;
+}
+@keyframes btn-shine{0%{left:-100%}25%{left:100%}100%{left:100%}}
+
+.cta-btn .tg-ic{
+  font-size:24px;filter:drop-shadow(0 0 10px rgba(255,255,255,0.4));
+  animation:tg-bounce 2s ease-in-out infinite;
+}
+@keyframes tg-bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+.cta-btn .btn-label{text-shadow:0 1px 3px rgba(0,0,0,0.3)}
+
+/* Glow ring around button */
+.cta-wrap::before{
+  content:'';position:absolute;top:50%;left:50%;width:120%;height:200%;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(0,136,204,0.12) 0%,transparent 70%);
+  pointer-events:none;z-index:-1;animation:glow-pulse 3s ease-in-out infinite;
+}
+.cta-wrap{position:relative}
+@keyframes glow-pulse{0%,100%{opacity:0.5;transform:translate(-50%,-50%) scale(1)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}}
+
+.urgency{margin-top:10px;font-size:11px;color:var(--red);font-weight:600;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.4}}
+.urgency.done{color:var(--green);animation:none}
+
+/* Joined state */
+.cta-btn.joined{
+  background:linear-gradient(135deg,#10b981,#059669);
+  box-shadow:0 0 0 1px rgba(16,185,129,0.3),0 8px 30px rgba(16,185,129,0.3);
+  pointer-events:none;
+}
+.cta-btn.joined::before{display:none}
+.cta-btn.joined .tg-ic{animation:none}
+
+/* ══════════ SOCIAL PROOF BAR ══════════ */
+.proof-bar{
+  display:flex;align-items:center;justify-content:center;gap:12px;
+  margin-bottom:32px;padding:12px 16px;border-radius:14px;
+  background:rgba(0,255,136,0.04);border:1px solid rgba(0,255,136,0.08);
+}
+.proof-avatars{display:flex}
+.proof-avatars span{
+  width:28px;height:28px;border-radius:50%;border:2px solid var(--bg);
+  display:inline-flex;align-items:center;justify-content:center;
+  font-size:12px;margin-left:-8px;overflow:hidden;
+}
+.proof-avatars span:first-child{margin-left:0}
+.proof-avatars span img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.proof-text{font-size:11px;color:rgba(255,255,255,0.5);text-align:left;line-height:1.4}
+.proof-text strong{color:var(--green);font-weight:700}
+
+/* ══════════ FEATURES ══════════ */
+.features{padding:0 0 36px}
+
+.section-label{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:6px 14px;border-radius:100px;margin-bottom:20px;
+  background:rgba(0,212,255,0.06);border:1px solid rgba(0,212,255,0.1);
+  font-size:11px;font-weight:700;color:var(--cyan);text-transform:uppercase;letter-spacing:1.5px;
 }
 
-.hero p{
-  font-size:14px;
-  color:#94a3b8;
-  margin-bottom:20px;
-}
+.feat-grid{display:flex;flex-direction:column;gap:10px}
 
-/* ── TRUST METRICS ── */
-.metrics {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 30px;
-}
-
-.metric-box {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 10px 16px;
-  backdrop-filter: blur(10px);
-  flex: 1;
-}
-
-.metric-box .num {
-  font-size: 18px;
-  font-weight: 900;
-  background: linear-gradient(90deg, #00c6ff, #8e2de2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: block;
-}
-
-.metric-box .lbl {
-  font-size: 9px;
-  color: #64748b;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* ── CTA ── */
-.cta-wrapper{
-  margin:0 auto 30px;
-  position:relative;
-  display:block;
-  width:100%;
-  max-width:380px;
-}
-
-.cta{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  width:100%;
-  padding:20px 30px;
-  font-size:18px;
-  font-weight:900;
-  border-radius:16px;
-  background:linear-gradient(135deg, #FF9933, #ffffff, #138808);
-  color:#000;
-  text-decoration:none;
-  border:none;
-  cursor:pointer;
-  position:relative;
-  overflow:hidden;
-  z-index:2;
-  box-shadow: 0 10px 25px rgba(255,153,51,0.3), 0 5px 15px rgba(19,136,8,0.3);
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-
-.cta::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%; width: 100%; height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
-  animation: shine-sweep 3s infinite ease-in-out;
-}
-
-@keyframes shine-sweep {
-  0% { left: -100%; }
-  20% { left: 100%; }
-  100% { left: 100%; }
-}
-
-.cta:hover{
-  transform:translateY(-4px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(255,153,51,0.5), 0 10px 20px rgba(19,136,8,0.4);
-}
-
-.cta:active { transform: scale(0.98); }
-
-.urgency-text {
-  margin-top: 10px;
-  font-size: 12px;
-  color: #ef4444;
-  font-weight: 600;
-  animation: pulse-dot 2s infinite;
-}
-
-/* ── CLEAN GLASS CARD ── */
-.info{
-  padding:10px 0 40px;
-}
-
-.premium-card {
-  position: relative;
-  border-radius: 24px;
-  background: rgba(15, 23, 42, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.05);
-  padding: 28px;
-  text-align: left;
-  overflow: hidden;
-}
-
-.premium-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at center, rgba(0, 198, 255, 0.03) 0%, transparent 60%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.card-content {
-  position: relative;
-  z-index: 1;
-}
-
-.card-title{
-  font-size:18px;
-  font-weight:800;
-  color:#fff;
-  margin-bottom:24px;
-  text-align:center;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-}
-
-.point{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  margin:20px 0;
-  padding:14px;
-  border-radius:14px;
-  background: rgba(255,255,255,0.02);
-  border: 1px solid rgba(255,255,255,0.04);
+.feat-card{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;border-radius:16px;
+  background:var(--card);border:1px solid var(--border);
+  backdrop-filter:blur(10px);
   transition:all .3s ease;
 }
-
-.point:hover{
+.feat-card:hover{
   background:rgba(255,255,255,0.05);
-  transform:translateX(5px);
-  border-color: rgba(0,198,255,0.2);
+  border-color:rgba(0,212,255,0.15);
+  transform:translateX(4px);
 }
 
-.point i{
-  color:#00ffcc;
+.feat-icon{
+  width:48px;height:48px;border-radius:14px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
   font-size:18px;
-  flex-shrink:0;
-  width:46px;
-  height:46px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(0,255,204,0.08);
-  border-radius:14px;
-  border:1px solid rgba(0,255,204,0.1);
+}
+.feat-icon.ic1{background:rgba(0,255,136,0.08);color:var(--green);border:1px solid rgba(0,255,136,0.1)}
+.feat-icon.ic2{background:rgba(0,212,255,0.08);color:var(--cyan);border:1px solid rgba(0,212,255,0.1)}
+.feat-icon.ic3{background:rgba(255,215,0,0.08);color:var(--gold);border:1px solid rgba(255,215,0,0.1)}
+.feat-icon.ic4{background:rgba(255,153,51,0.08);color:var(--orange);border:1px solid rgba(255,153,51,0.1)}
+
+.feat-info .feat-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:2px}
+.feat-info .feat-desc{font-size:11px;color:rgba(255,255,255,0.35);line-height:1.4}
+
+/* ══════════ RESULTS SNAPSHOT ══════════ */
+.results-card{
+  margin:0 0 36px;padding:24px;border-radius:20px;
+  background:linear-gradient(145deg,rgba(0,136,204,0.06),rgba(0,255,136,0.03));
+  border:1px solid rgba(0,212,255,0.08);
+  position:relative;overflow:hidden;
+}
+.results-card::before{
+  content:'';position:absolute;top:-50%;right:-50%;width:200%;height:200%;
+  background:radial-gradient(circle,rgba(0,136,204,0.04) 0%,transparent 60%);
+  pointer-events:none;
+}
+.results-header{
+  display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.results-header h3{font-size:16px;font-weight:800;color:#fff}
+.results-header .badge{
+  padding:4px 10px;border-radius:100px;font-size:10px;font-weight:700;
+  background:rgba(0,255,136,0.1);color:var(--green);border:1px solid rgba(0,255,136,0.15);
 }
 
-.point span{
-  font-size:14px;
-  color:#e2e8f0;
-  font-weight:600;
+.result-rows{position:relative;z-index:1}
+.result-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:12px 0;border-bottom:1px solid rgba(255,255,255,0.04);
 }
+.result-row:last-child{border-bottom:none}
+.result-row .r-name{font-size:13px;color:rgba(255,255,255,0.6);font-weight:500}
+.result-row .r-val{font-size:14px;font-weight:800}
+.r-val.up{color:var(--green)}
+.r-val.neutral{color:var(--cyan)}
 
-.point .sub-span {
-  font-size: 11px;
-  font-weight: 400;
-  color: #64748b;
-  display: block;
-  margin-top: 2px;
+/* ══════════ TESTIMONIAL ══════════ */
+.testimonial{
+  margin:0 0 36px;padding:20px;border-radius:20px;
+  background:var(--card);border:1px solid var(--border);
+  text-align:left;
 }
+.testi-top{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.testi-avatar{width:40px;height:40px;border-radius:50%;object-fit:cover;border:2px solid rgba(255,255,255,0.1)}
+.testi-name{font-size:13px;font-weight:700;color:#fff}
+.testi-tag{font-size:10px;color:rgba(255,255,255,0.3)}
+.testi-text{font-size:12px;color:rgba(255,255,255,0.5);line-height:1.7;font-style:italic}
+.testi-stars{margin-top:8px;color:var(--gold);font-size:11px;letter-spacing:2px}
 
-/* ── FOOTER ── */
+/* ══════════ SECOND CTA ══════════ */
+.cta2-section{padding:0 0 40px;text-align:center}
+.cta2-section p{font-size:13px;color:rgba(255,255,255,0.3);margin-bottom:16px}
+
+/* ══════════ FOOTER ══════════ */
 .footer{
-  padding:30px 20px;
-  font-size:12px;
-  color:#334155;
-  line-height:1.7;
-  position:relative;
-  z-index:1;
-  background: #020617;
+  padding:28px 20px;text-align:center;position:relative;z-index:1;
+  border-top:1px solid var(--border);background:rgba(5,5,16,0.8);
 }
+.footer .copy{font-size:12px;color:rgba(255,255,255,0.2);margin-bottom:8px}
+.footer .disc{font-size:9px;color:rgba(255,255,255,0.12);max-width:400px;margin:0 auto;line-height:1.6}
 
-.footer .copyright{
-  margin-bottom:12px;
-  font-size:13px;
-  color:#475569;
+/* ══════════ FLOATING BOTTOM BAR (mobile) ══════════ */
+.float-bar{
+  position:fixed;bottom:0;left:0;width:100%;z-index:100;
+  padding:12px 16px 20px;
+  background:linear-gradient(180deg,transparent 0%,rgba(5,5,16,0.95) 30%);
+  display:none;
 }
+.float-bar a{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px;border-radius:14px;
+  background:linear-gradient(135deg,#0088cc,#00d4ff);
+  color:#fff;font-size:16px;font-weight:800;
+  text-decoration:none;font-family:'Inter',sans-serif;
+  box-shadow:0 4px 20px rgba(0,136,204,0.4);
+  transition:transform .2s;
+}
+.float-bar a:active{transform:scale(0.98)}
+.float-bar a i{font-size:20px}
 
-.footer .disclaimer{
-  max-width:400px;
-  margin:0 auto;
-  font-size:10px;
-  color:#334155;
-  line-height:1.6;
-  border-top:1px solid rgba(255,255,255,0.04);
-  padding-top:12px;
+@media(max-width:600px){
+  .float-bar{display:block}
+  .cta2-section{padding-bottom:90px}
 }
 </style>
 </head>
 
 <body>
 
-<div class="bg-grid"></div>
-<div class="bg-glow"></div>
+<div class="mesh-bg"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+<div class="noise"></div>
 
-<div class="container">
-
-  <!-- ============================================================
-       HERO SECTION
-       ============================================================ -->
-  <section class="hero">
-    
-    <div class="hero-img-wrap reveal d1">
-      <img src="https://uploads.onecompiler.io/44pnfmpww/44pnfkn2s/ChatGPT%20Image%20May%2018,%202026,%2007_52_33%20PM.png" alt="Gujarati Trader Logo">
-      <div class="live-badge"><i class="fas fa-circle"></i> LIVE</div>
-    </div>
-
-    <div class="trader-name reveal d2">
-      <i class="fas fa-crown"></i> 
-      <span class="brand-text brand-gujarati">ગુજરાતી</span>
-      <span class="brand-text brand-eng">TRADER</span> 
-      <i class="fas fa-bolt"></i>
-    </div>
-
-    <h1 class="reveal d2">India's #1 Stock Market Community</h1>
-    
-    <p class="reveal d3">Free Signals • Daily Analysis • Smart Risk Management</p>
-
-    <div class="metrics reveal d3">
-      <div class="metric-box">
-        <span class="num">50K+</span>
-        <span class="lbl">Members</span>
-      </div>
-      <div class="metric-box">
-        <span class="num">90%</span>
-        <span class="lbl">Win Rate</span>
-      </div>
-      <div class="metric-box">
-        <span class="num">4.9★</span>
-        <span class="lbl">Rating</span>
-      </div>
-    </div>
-
-    <div class="cta-wrapper reveal d4">
-      <a href="https://t.me/+r-G9PAYNYT8wZDJl"
-         target="_blank"
-         rel="noopener noreferrer"
-         class="cta subscribe-btn">
-        <i class="fab fa-telegram-plane"></i> 𝐉𝐎𝐈𝐍 𝐎𝐔𝐑 𝐓𝐄𝐋𝐄𝐆𝐑𝐀𝐌
-      </a>
-      <div class="urgency-text">🔥 Limited Free Slots Available Today!</div>
-    </div>
-
-  </section>
-
-  <!-- ============================================================
-       INFO SECTION
-       ============================================================ -->
-  <section class="info reveal d5">
-    <div class="premium-card">
-      <div class="card-content">
-
-        <div class="card-title">
-          <i class="fas fa-bolt" style="color:#FFD700"></i> Why 50,000+ Traders Trust Us?
-        </div>
-
-        <div class="point">
-          <i class="fa-solid fa-chart-line"></i>
-          <div>
-            <span>Precision Trade Calls</span>
-            <span class="sub-span">Intraday, Options, NIFTY & BANKNIFTY</span>
-          </div>
-        </div>
-
-        <div class="point">
-          <i class="fa-solid fa-bullseye"></i>
-          <div>
-            <span>Accurate Targets</span>
-            <span class="sub-span">Exact Entry, Stop-Loss & Exit Levels</span>
-          </div>
-        </div>
-
-        <div class="point">
-          <i class="fa-solid fa-shield-halved"></i>
-          <div>
-            <span>Risk Management First</span>
-            <span class="sub-span">Protect capital with smart strategies</span>
-          </div>
-        </div>
-
-        <div class="point">
-          <i class="fa-solid fa-fire-flame-curved"></i>
-          <div>
-            <span>Premium Daily Analysis</span>
-            <span class="sub-span">Pre-market & live session breakdowns</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-</div>
-
-<!-- ============================================================
-     FOOTER + COMPLIANCE
-     ============================================================ -->
-<div class="footer">
-  <div class="copyright">© 2026 Gujarati Trader • All Rights Reserved</div>
-  <div class="disclaimer">
-    Disclaimer: Stock market trading involves financial risk. Content shared on this platform is strictly for educational and informational purposes only and should not be construed as investment or SEBI-registered advice.
+<!-- ═══ TICKER STRIP ═══ -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span><i class="fas fa-chart-line"></i> NIFTY 24,850 <span class="up">▲ 1.2%</span></span>
+    <span><i class="fas fa-chart-line"></i> BANKNIFTY 52,340 <span class="up">▲ 0.8%</span></span>
+    <span><i class="fas fa-chart-line"></i> SENSEX 81,200 <span class="up">▲ 0.9%</span></span>
+    <span><i class="fas fa-chart-line"></i> FINNIFTY 23,100 <span class="down">▼ 0.3%</span></span>
+    <span><i class="fas fa-chart-line"></i> MIDCPNIFTY 12,450 <span class="up">▲ 1.5%</span></span>
+    <span><i class="fas fa-fire"></i> TODAY'S CALLS: 4/4 HIT ✅</span>
+    <!-- duplicate for seamless loop -->
+    <span><i class="fas fa-chart-line"></i> NIFTY 24,850 <span class="up">▲ 1.2%</span></span>
+    <span><i class="fas fa-chart-line"></i> BANKNIFTY 52,340 <span class="up">▲ 0.8%</span></span>
+    <span><i class="fas fa-chart-line"></i> SENSEX 81,200 <span class="up">▲ 0.9%</span></span>
+    <span><i class="fas fa-chart-line"></i> FINNIFTY 23,100 <span class="down">▼ 0.3%</span></span>
+    <span><i class="fas fa-chart-line"></i> MIDCPNIFTY 12,450 <span class="up">▲ 1.5%</span></span>
+    <span><i class="fas fa-fire"></i> TODAY'S CALLS: 4/4 HIT ✅</span>
   </div>
 </div>
 
-<!-- ============================================================
-     CONVERSION TRACKING ENGINE
-     ============================================================ -->
+<div class="container">
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+
+    <div class="hero-top reveal d1">
+      <div class="avatar-ring">
+        <img src="https://uploads.onecompiler.io/44pnfmpww/44pnfkn2s/ChatGPT%20Image%20May%2018,%202026,%2007_52_33%20PM.png" alt="Gujarati Trader">
+        <div class="live-dot"><i class="fas fa-circle"></i></div>
+      </div>
+
+      <div class="brand-row">
+        <i class="fas fa-crown"></i>
+        <span class="brand-name">ગુજરાતી TRADER</span>
+        <i class="fas fa-bolt"></i>
+      </div>
+
+      <h1>India's #1 Stock Market<br>Community</h1>
+      <p class="subtitle">Free Signals • Daily Analysis • Smart Risk Management</p>
+    </div>
+
+    <div class="stats-row reveal d2">
+      <div class="stat-pill green">
+        <i class="fas fa-users"></i>
+        <div><span class="s-val">50K+</span> <span class="s-lbl">Members</span></div>
+      </div>
+      <div class="stat-pill blue">
+        <i class="fas fa-bullseye"></i>
+        <div><span class="s-val">90%</span> <span class="s-lbl">Win Rate</span></div>
+      </div>
+      <div class="stat-pill gold">
+        <i class="fas fa-star"></i>
+        <div><span class="s-val">4.9★</span> <span class="s-lbl">Rating</span></div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap reveal d3">
+      <a href="https://t.me/+r-G9PAYNYT8wZDJl"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="cta-btn"
+         id="mainCTA"
+         onclick="fireLeadOnce()">
+        <i class="fab fa-telegram-plane tg-ic"></i>
+        <span class="btn-label" id="ctaText">JOIN OUR TELEGRAM</span>
+      </a>
+      <div class="urgency" id="urgencyText">🔥 Limited Free Slots Available Today!</div>
+    </div>
+
+    <!-- Social Proof -->
+    <div class="proof-bar reveal d4">
+      <div class="proof-avatars">
+        <span style="background:#1a3a5c">R</span>
+        <span style="background:#2a1a3c">P</span>
+        <span style="background:#1a3c2a">K</span>
+        <span style="background:#3c2a1a">M</span>
+        <span style="background:#0d3320;color:var(--green);font-size:9px">+50K</span>
+      </div>
+      <div class="proof-text"><strong>2,340 people</strong> joined this week<br>Signals are hitting daily! 🎯</div>
+    </div>
+
+  </section>
+
+  <!-- ═══ RESULTS SNAPSHOT ═══ -->
+  <div class="results-card reveal d4">
+    <div class="results-header">
+      <h3>📊 Recent Calls</h3>
+      <span class="badge">LIVE TRACKED</span>
+    </div>
+    <div class="result-rows">
+      <div class="result-row">
+        <span class="r-name">NIFTY 24,800 CE</span>
+        <span class="r-val up">+340 pts ✅</span>
+      </div>
+      <div class="result-row">
+        <span class="r-name">BANKNIFTY 52,200 PE</span>
+        <span class="r-val up">+520 pts ✅</span>
+      </div>
+      <div class="result-row">
+        <span class="r-name">RELIANCE 2950 CE</span>
+        <span class="r-val up">+85 pts ✅</span>
+      </div>
+      <div class="result-row">
+        <span class="r-name">Today's Accuracy</span>
+        <span class="r-val neutral">4/4 = 100%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURES ═══ -->
+  <section class="features reveal d5">
+    <div class="section-label"><i class="fas fa-sparkles"></i> What You Get</div>
+    <div class="feat-grid">
+      <div class="feat-card">
+        <div class="feat-icon ic1"><i class="fas fa-chart-line"></i></div>
+        <div class="feat-info">
+          <div class="feat-title">Precision Trade Calls</div>
+          <div class="feat-desc">Intraday, Options, NIFTY & BANKNIFTY with exact entry & exit</div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon ic2"><i class="fas fa-bullseye"></i></div>
+        <div class="feat-info">
+          <div class="feat-title">Accurate Targets</div>
+          <div class="feat-desc">Exact Entry, Stop-Loss & Target levels — no guesswork</div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon ic3"><i class="fas fa-shield-halved"></i></div>
+        <div class="feat-info">
+          <div class="feat-title">Risk Management First</div>
+          <div class="feat-desc">Protect your capital with smart position sizing</div>
+        </div>
+      </div>
+      <div class="feat-card">
+        <div class="feat-icon ic4"><i class="fas fa-fire-flame-curved"></i></div>
+        <div class="feat-info">
+          <div class="feat-title">Premium Daily Analysis</div>
+          <div class="feat-desc">Pre-market setup & live session breakdowns</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIAL ═══ -->
+  <div class="testimonial reveal d6">
+    <div class="testi-top">
+      <img src="https://picsum.photos/seed/trader77/80/80.jpg" class="testi-avatar" alt="Member">
+      <div>
+        <div class="testi-name">Rajesh Patel</div>
+        <div class="testi-tag">Member since 6 months</div>
+      </div>
+    </div>
+    <div class="testi-text">"Joined 6 months ago — best decision ever. The accuracy is insane, my portfolio is up 40%. Risk management saves me on bad days. This community is gold! 💰"</div>
+    <div class="testi-stars">★★★★★</div>
+  </div>
+
+  <!-- ═══ SECOND CTA ═══ -->
+  <div class="cta2-section reveal d6">
+    <p>Don't miss out — join 50,000+ smart traders today</p>
+    <div class="cta-wrap">
+      <a href="https://t.me/+r-G9PAYNYT8wZDJl"
+         target="_blank"
+         rel="noopener noreferrer"
+         class="cta-btn"
+         onclick="fireLeadOnce()">
+        <i class="fab fa-telegram-plane tg-ic"></i>
+        <span class="btn-label">JOIN OUR TELEGRAM</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<!-- FLOATING BOTTOM BAR -->
+<div class="float-bar" id="floatBar">
+  <a href="https://t.me/+r-G9PAYNYT8wZDJl"
+     target="_blank"
+     rel="noopener noreferrer"
+     onclick="fireLeadOnce()">
+    <i class="fab fa-telegram-plane"></i> JOIN OUR TELEGRAM
+  </a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="copy">© 2026 Gujarati Trader • All Rights Reserved</div>
+  <div class="disc">Disclaimer: Stock market trading involves financial risk. Content shared on this platform is strictly for educational and informational purposes only and should not be construed as investment or SEBI-registered advice.</div>
+</div>
+
+<!-- ═══ TRACKING — 1 DEVICE = 1 EVENT ═══ -->
 <script>
-(function() {
-    'use strict';
+(function(){'use strict';
 
-    var LEAD_TRACKED_KEY = 'gt_lead_tracked';
-    var BASE_TELEGRAM_URL = 'https://t.me/+r-G9PAYNYT8wZDJl';
-    var tracking = window.__gt_tracking;
+var TELEGRAM_URL='https://t.me/+r-G9PAYNYT8wZDJl';
+var tracking=window.__gt_tracking;
+var LEAD_FLAG='gt_lead_done';
+var VIEW_FLAG='gt_view_done';
+var COOKIE_DAYS=365;
 
-    var subscribeBtn = document.querySelector('.subscribe-btn');
+function setCookie(n,v,d){var dt=new Date();dt.setTime(dt.getTime()+(d*24*60*60*1000));document.cookie=n+'='+v+';expires='+dt.toUTCString()+';path=/;SameSite=Lax'}
+function getCookie(n){var eq=n+'=';var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(eq)===0)return c.substring(eq.length)}return null}
+function isDone(f){return localStorage.getItem(f)!==null||getCookie(f)!==null}
+function markDone(f){var ts=Date.now().toString();localStorage.setItem(f,ts);setCookie(f,ts,COOKIE_DAYS)}
 
-    if (!subscribeBtn || !tracking) return;
+// Already converted?
+if(isDone(LEAD_FLAG)){
+  var btn=document.getElementById('mainCTA');
+  btn.classList.add('joined');
+  btn.onclick=null;
+  document.getElementById('ctaText').textContent='✓ ALREADY JOINED';
+  var ut=document.getElementById('urgencyText');
+  ut.textContent="✅ You're already a member!";
+  ut.classList.add('done');
+  // Hide floating bar
+  var fb=document.getElementById('floatBar');
+  if(fb)fb.style.display='none';
+}
 
-    var startParam = tracking.externalId + '__' + (tracking.fbclid || 'na');
-    subscribeBtn.href = BASE_TELEGRAM_URL + '?start=' + encodeURIComponent(startParam);
+// ViewContent once
+setTimeout(function(){if(!isDone(VIEW_FLAG)){fbq('track','ViewContent',{content_name:'Gujarati Trader Landing Page',content_category:'Stock Market Community'});markDone(VIEW_FLAG)}},3000);
 
-    subscribeBtn.addEventListener('click', function() {
-
-        if (localStorage.getItem(LEAD_TRACKED_KEY)) {
-            return;
-        }
-
-        localStorage.setItem(LEAD_TRACKED_KEY, Date.now().toString());
-
-        fbq('track', 'Lead');
-
-        fbq('trackCustom', 'TelegramSubscribe', {
-            source: 'Landing Page',
-            platform: 'Telegram',
-            external_id: tracking.externalId,
-            fbclid: tracking.fbclid || undefined
-        });
-
-    });
+// Lead — ONCE per device
+window.fireLeadOnce=function(){
+  if(isDone(LEAD_FLAG))return;
+  fbq('track','Lead',{content_name:'Gujarati Trader Telegram Channel',content_category:'Stock Market Community',value:1,currency:'INR'},{eventID:'gt-lead-'+tracking.externalId});
+  fbq('trackCustom','TelegramJoinRequest',{source:'Landing Page',platform:'Telegram',external_id:tracking.externalId,fbclid:tracking.fbclid||undefined});
+  markDone(LEAD_FLAG);
+  var btn=document.getElementById('mainCTA');
+  btn.classList.add('joined');
+  document.getElementById('ctaText').textContent='✓ ALREADY JOINED';
+  var ut=document.getElementById('urgencyText');
+  ut.textContent="✅ You're already a member!";
+  ut.classList.add('done');
+  var fb=document.getElementById('floatBar');
+  if(fb)fb.style.display='none';
+};
 
 })();
 </script>
