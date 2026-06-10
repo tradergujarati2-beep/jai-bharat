@@ -6,15 +6,10 @@
 <title>Gujarati Trader - India's #1 Stock Market Community</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 
-<!-- IDENTITY & TRACKING -->
-<script>
-(function(){'use strict';var k='gt_external_id',e=localStorage.getItem(k);if(!e){var u;if(typeof crypto!=='undefined'&&typeof crypto.randomUUID==='function'){u=crypto.randomUUID()}else{u='xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,function(c){var a=new Uint8Array(1);crypto.getRandomValues(a);var r=a[0]&15;return(c==='x'?r:(r&0x3|0x8)).toString(16)})}e='gt-ext-'+u;localStorage.setItem(k,e)}var p=new URLSearchParams(window.location.search),f=p.get('fbclid')||'';if(f)localStorage.setItem('gt_fbclid',f);else f=localStorage.getItem('gt_fbclid')||'';window.__gt_tracking={externalId:e,fbclid:f}})();
-</script>
-
 <!-- META PIXEL -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
-fbq('init','1723339156163326',{external_id:window.__gt_tracking.externalId});
+fbq('init','1723339156163326');
 fbq('track','PageView');
 </script>
 <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1723339156163326&ev=PageView&noscript=1"/></noscript>
@@ -191,12 +186,12 @@ body{
   position:relative;display:flex;align-items:center;justify-content:center;gap:12px;
   width:100%;padding:22px 28px;border-radius:18px;border:none;cursor:pointer;
   font-family:'Outfit',sans-serif;font-size:18px;font-weight:800;color:#fff;
-  background:linear-gradient(135deg,#0077b5 0%,#0088cc 30%,#00a8e8 60%,#00d4ff 100%);
+  background:linear-gradient(135deg,#b91c1c 0%,#dc2626 30%,#ef4444 60%,#f87171 100%);
   box-shadow:
-    0 0 0 1px rgba(0,212,255,0.25),
-    0 4px 15px rgba(0,136,204,0.3),
-    0 15px 40px rgba(0,136,204,0.25),
-    0 0 80px rgba(0,136,204,0.1),
+    0 0 0 1px rgba(239,68,68,0.35),
+    0 4px 15px rgba(220,38,38,0.35),
+    0 15px 40px rgba(220,38,38,0.3),
+    0 0 80px rgba(239,68,68,0.15),
     inset 0 1px 0 rgba(255,255,255,0.15);
   text-decoration:none;overflow:hidden;
   transition:all .3s cubic-bezier(0.16,1,0.3,1);
@@ -205,10 +200,10 @@ body{
 .cta-btn:hover{
   transform:translateY(-4px) scale(1.02);
   box-shadow:
-    0 0 0 1px rgba(0,212,255,0.4),
-    0 8px 25px rgba(0,136,204,0.4),
-    0 20px 60px rgba(0,136,204,0.3),
-    0 0 120px rgba(0,136,204,0.15),
+    0 0 0 1px rgba(239,68,68,0.5),
+    0 8px 25px rgba(220,38,38,0.45),
+    0 20px 60px rgba(220,38,38,0.35),
+    0 0 120px rgba(239,68,68,0.2),
     inset 0 1px 0 rgba(255,255,255,0.2);
 }
 .cta-btn:active{transform:scale(0.97)}
@@ -233,7 +228,7 @@ body{
 .cta-glow{
   position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);
   width:80%;height:60px;border-radius:50%;
-  background:radial-gradient(ellipse,rgba(0,136,204,0.25) 0%,transparent 70%);
+  background:radial-gradient(ellipse,rgba(220,38,38,0.3) 0%,transparent 70%);
   filter:blur(15px);animation:glow-pulse 3s ease-in-out infinite;pointer-events:none;
 }
 @keyframes glow-pulse{0%,100%{opacity:0.6;transform:translateX(-50%) scale(1)}50%{opacity:1;transform:translateX(-50%) scale(1.1)}}
@@ -244,15 +239,6 @@ body{
 }
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
 .urgency.done{color:var(--green);animation:none}
-
-/* Joined */
-.cta-btn.joined{
-  background:linear-gradient(135deg,#10b981,#059669);
-  box-shadow:0 0 0 1px rgba(16,185,129,0.3),0 8px 30px rgba(16,185,129,0.3);
-  pointer-events:none;
-}
-.cta-btn.joined::before{display:none}
-.cta-btn.joined .tg-ic{animation:none}
 
 /* ══════════ SOCIAL PROOF ══════════ */
 .proof-bar{
@@ -438,10 +424,10 @@ body{
 .float-bar a{
   display:flex;align-items:center;justify-content:center;gap:10px;
   width:100%;padding:16px;border-radius:16px;
-  background:linear-gradient(135deg,#0077b5,#0088cc,#00d4ff);
+  background:linear-gradient(135deg,#b91c1c,#dc2626,#ef4444);
   color:#fff;font-size:15px;font-weight:800;
   text-decoration:none;font-family:'Outfit',sans-serif;
-  box-shadow:0 4px 25px rgba(0,136,204,0.4),inset 0 1px 0 rgba(255,255,255,0.15);
+  box-shadow:0 4px 25px rgba(220,38,38,0.4),0 0 60px rgba(239,68,68,0.15),inset 0 1px 0 rgba(255,255,255,0.15);
   transition:transform .2s;letter-spacing:0.5px;
 }
 .float-bar a:active{transform:scale(0.97)}
@@ -494,7 +480,7 @@ body{
     <div class="hero-top reveal d1">
       <div class="avatar-wrap">
         <div class="avatar-hex">
-          <img src="https://uploads.onecompiler.io/44pnfmpww/44pnfkn2s/ChatGPT%20Image%20May%2018,%202026,%2007_52_33%20PM.png" alt="Gujarati Trader">
+          <img src="https://uploads.onecompiler.io/446vwj75z/1781104824619/Gemini_Generated_Image_rdds9brdds9brdds.png" alt="Gujarati Trader">
         </div>
         <div class="live-badge"><i class="fas fa-circle"></i> LIVE</div>
       </div>
@@ -531,69 +517,17 @@ body{
       <a href="https://t.me/+r-G9PAYNYT8wZDJl"
          target="_blank"
          rel="noopener noreferrer"
-         class="cta-btn"
-         id="mainCTA"
-         onclick="fireLeadOnce()">
+         class="cta-btn subscribe-btn"
+         id="mainCTA">
         <i class="fab fa-telegram-plane tg-ic"></i>
         <span class="btn-label" id="ctaText">JOIN OUR TELEGRAM</span>
       </a>
       <div class="cta-glow"></div>
-      <div class="urgency" id="urgencyText">🔥 Limited Free Slots Available Today!</div>
-    </div>
-
-    <!-- Social Proof -->
-    <div class="proof-bar reveal d4">
-      <div class="proof-avatars">
-        <span style="background:linear-gradient(135deg,#1a3a5c,#0d2240)">R</span>
-        <span style="background:linear-gradient(135deg,#2a1a3c,#1a0d2e)">P</span>
-        <span style="background:linear-gradient(135deg,#1a3c2a,#0d2e1a)">K</span>
-        <span style="background:linear-gradient(135deg,#3c2a1a,#2e1a0d)">M</span>
-        <span style="background:linear-gradient(135deg,#0d3320,#051a10);color:var(--green);font-size:9px">+50K</span>
-      </div>
-      <div class="proof-text"><strong>2,340 people</strong> joined this week<br>Signals are hitting daily! 🎯</div>
     </div>
 
   </section>
 
-  <!-- ═══ RESULTS ═══ -->
-  <div class="results-card reveal d4">
-    <div class="results-top">
-      <h3><i class="fas fa-bolt"></i> Recent Calls</h3>
-      <span class="badge-live"><span class="dot"></span> LIVE TRACKED</span>
-    </div>
-    <div class="result-rows">
-      <div class="result-row">
-        <div class="r-left">
-          <div class="r-icon"><i class="fas fa-arrow-trend-up"></i></div>
-          <span class="r-name">NIFTY 24,800 CE</span>
-        </div>
-        <span class="r-val up">+340 pts ✅</span>
-      </div>
-      <div class="result-row">
-        <div class="r-left">
-          <div class="r-icon"><i class="fas fa-arrow-trend-up"></i></div>
-          <span class="r-name">BANKNIFTY 52,200 PE</span>
-        </div>
-        <span class="r-val up">+520 pts ✅</span>
-      </div>
-      <div class="result-row">
-        <div class="r-left">
-          <div class="r-icon"><i class="fas fa-arrow-trend-up"></i></div>
-          <span class="r-name">RELIANCE 2950 CE</span>
-        </div>
-        <span class="r-val up">+85 pts ✅</span>
-      </div>
-    </div>
-    <div class="accuracy-bar">
-      <div class="accuracy-top">
-        <span>Today's Accuracy</span>
-        <strong>4/4 = 100%</strong>
-      </div>
-      <div class="accuracy-track">
-        <div class="accuracy-fill" id="accFill"></div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- ═══ FEATURES ═══ -->
   <section class="features reveal d5">
@@ -630,18 +564,7 @@ body{
     </div>
   </section>
 
-  <!-- ═══ TESTIMONIAL ═══ -->
-  <div class="testimonial reveal d6">
-    <div class="testi-top">
-      <img src="https://picsum.photos/seed/trader77/80/80.jpg" class="testi-avatar" alt="Member">
-      <div>
-        <div class="testi-name">Rajesh Patel</div>
-        <div class="testi-tag">Member since 6 months</div>
-      </div>
-    </div>
-    <div class="testi-text">Joined 6 months ago — best decision ever. The accuracy is insane, my portfolio is up 40%. Risk management saves me on bad days. This community is gold! 💰</div>
-    <div class="testi-stars">★★★★★</div>
-  </div>
+
 
 </div>
 
@@ -650,7 +573,7 @@ body{
   <a href="https://t.me/+r-G9PAYNYT8wZDJl"
      target="_blank"
      rel="noopener noreferrer"
-     onclick="fireLeadOnce()">
+     class="subscribe-btn">
     <i class="fab fa-telegram-plane"></i> JOIN OUR TELEGRAM
   </a>
 </div>
@@ -700,53 +623,32 @@ body{
 })();
 </script>
 
-<!-- ═══ TRACKING ═══ -->
+<!-- ═══ STRONG TRACKING ═══ -->
 <script>
-(function(){'use strict';
+const PAGEVIEW_KEY = "gt_pageview_tracked";
+const SUBSCRIBE_KEY = "gt_subscribe_tracked";
 
-var tracking=window.__gt_tracking;
-var LEAD_FLAG='gt_lead_done';
-var VIEW_FLAG='gt_view_done';
-var COOKIE_DAYS=365;
-
-function setCookie(n,v,d){var dt=new Date();dt.setTime(dt.getTime()+(d*24*60*60*1000));document.cookie=n+'='+v+';expires='+dt.toUTCString()+';path=/;SameSite=Lax'}
-function getCookie(n){var eq=n+'=';var ca=document.cookie.split(';');for(var i=0;i<ca.length;i++){var c=ca[i].trim();if(c.indexOf(eq)===0)return c.substring(eq.length)}return null}
-function isDone(f){return localStorage.getItem(f)!==null||getCookie(f)!==null}
-function markDone(f){var ts=Date.now().toString();localStorage.setItem(f,ts);setCookie(f,ts,COOKIE_DAYS)}
-
-// Already converted?
-if(isDone(LEAD_FLAG)){
-  var btn=document.getElementById('mainCTA');
-  btn.classList.add('joined');
-  btn.onclick=null;
-  document.getElementById('ctaText').textContent='✓ ALREADY JOINED';
-  var ut=document.getElementById('urgencyText');
-  ut.textContent="✅ You're already a member!";
-  ut.classList.add('done');
-  var fb=document.getElementById('floatBar');
-  if(fb)fb.style.display='none';
+/* PAGE VIEW - ONLY ONCE */
+if (!localStorage.getItem(PAGEVIEW_KEY)) {
+    fbq('track', 'PageView');
+    localStorage.setItem(PAGEVIEW_KEY, "true");
+    console.log("✅ PageView tracked");
 }
 
-// ViewContent once
-setTimeout(function(){if(!isDone(VIEW_FLAG)){fbq('track','ViewContent',{content_name:'Gujarati Trader Landing Page',content_category:'Stock Market Community'});markDone(VIEW_FLAG)}},3000);
-
-// Lead — ONCE per device
-window.fireLeadOnce=function(){
-  if(isDone(LEAD_FLAG))return;
-  fbq('track','Lead',{content_name:'Gujarati Trader Telegram Channel',content_category:'Stock Market Community',value:1,currency:'INR'},{eventID:'gt-lead-'+tracking.externalId});
-  fbq('trackCustom','TelegramJoinRequest',{source:'Landing Page',platform:'Telegram',external_id:tracking.externalId,fbclid:tracking.fbclid||undefined});
-  markDone(LEAD_FLAG);
-  var btn=document.getElementById('mainCTA');
-  btn.classList.add('joined');
-  document.getElementById('ctaText').textContent='✓ ALREADY JOINED';
-  var ut=document.getElementById('urgencyText');
-  ut.textContent="✅ You're already a member!";
-  ut.classList.add('done');
-  var fb=document.getElementById('floatBar');
-  if(fb)fb.style.display='none';
-};
-
-})();
+/* TELEGRAM JOIN - ONLY ONCE */
+document.querySelectorAll(".subscribe-btn").forEach(function(btn) {
+    btn.addEventListener("click", function () {
+        if (!localStorage.getItem(SUBSCRIBE_KEY)) {
+            fbq('track', 'Lead');
+            fbq('trackCustom', 'TelegramSubscribe', {
+                source: 'Landing Page',
+                platform: 'Telegram'
+            });
+            localStorage.setItem(SUBSCRIBE_KEY, "true");
+            console.log("✅ Subscribe tracked");
+        }
+    });
+});
 </script>
 
 </body>
